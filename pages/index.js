@@ -1,5 +1,6 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { Card } from "../components/Card/Card";
 
 export default function Home() {
   return (
@@ -15,38 +16,39 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          Get started by editing <code className={styles.code}>pages/index.js</code>
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <Card
+            link="demos/fetch-demo"
+            title="Fetching Data"
+            description="Fetching data with Axios"
+          ></Card>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          <Card
+            link="https://nextjs.org/docs"
+            title="Documentation"
+            description="Find in-depth information about Next.js features and API."
+          ></Card>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+          <Card
+            link="https://nextjs.org/learn"
+            title="Learn"
+            description="Learn about Next.js in an interactive course with quizzes!"
+          ></Card>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <Card
+            link="https://github.com/vercel/next.js/tree/master/examples"
+            title="Examples"
+            description="Discover and deploy boilerplate example Next.js projects."
+          ></Card>
+
+          <Card
+            link="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            title="Deploy"
+            description="Instantly deploy your Next.js site to a public URL with Vercel."
+          ></Card>
         </div>
       </main>
 
@@ -56,10 +58,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }
