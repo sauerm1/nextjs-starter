@@ -7,6 +7,8 @@ const useFetch = () => {
   const [loading, setLoading] = useState(false);
 
   const request = async (options) => {
+    setData(null)
+    setError(null)
     setLoading(true)
     try {
       const res = await axios(options);
