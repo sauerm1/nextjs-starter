@@ -24,6 +24,7 @@ export default function Home() {
 
           <div className={styles.grid}>
             <Card link="demos/fetch-demo" title="Fetching Data" description="Fetching data with Axios"></Card>
+            <Card link="demos/zustand" title="State Management" description="Managing state with Zustand"></Card>
 
             <Card
               link="https://nextjs.org/docs"

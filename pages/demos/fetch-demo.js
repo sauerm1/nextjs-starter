@@ -30,14 +30,14 @@ const FetchDemo = () => {
 
   return (
     <div>
-      <Header></Header>
+      <Header>Axios</Header>
       <Page>
         {!headerloading && !headerData ? <h1>Wheres my head?</h1> : null}
         {headerloading && <h1>Loading...</h1>}
         {headerData?.header && <h1>{headerData?.header}</h1>}
         <Button onClick={handleHeaderClick}>GET Header</Button>
 
-        {!bodyloading && !bodyData.body ? <h1>Wheres my body?</h1> : null}
+        {!bodyloading && !bodyData?.body ? <h1>Wheres my body?</h1> : null}
         {bodyloading && <h1>Loading...</h1>}
         {bodyData?.body && <h1>Posted Data: {bodyData?.body}</h1>}
         <Input value={input} onChange={(e) => setInput(e.target.value)}>
