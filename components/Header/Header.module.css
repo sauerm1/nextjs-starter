@@ -4,4 +4,23 @@
     background: #0070f3;
     color: white;
     font-size: 20px;
+    display:flex;
 }
+
+.title{
+    width:75%;
+text-align:center;
+}
+
+.alignleft {
+    width:33.33333%;
+    text-align:left;
+    }
+    .aligncenter {
+    width:33.33333%;
+    text-align:center;
+    }
+    .alignright {
+    width:33.33333%;
+    text-align:right;
+    }
