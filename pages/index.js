@@ -20,9 +20,9 @@ export default function Home() {
           </h1>
 
           <div className={styles.grid}>
-            <Card link="demos/fetch-demo" title="Fetching Data" description="Fetching data with Axios"></Card>
-            <Card link="demos/zustand" title="State Management" description="Managing state with Zustand"></Card>
-            <Card link="demos/login" title="Persistant State Management" description="Managing persistant state with Zustand"></Card>
+            <Card link="demo/fetch-demo" title="Fetching Data" description="Fetching data with Axios"></Card>
+            <Card link="demo/zustand" title="State Management" description="Managing state with Zustand"></Card>
+            <Card link="demo/login" title="Persistant State Management" description="Managing persistant state with Zustand"></Card>
 
             <Card
               link="https://nextjs.org/docs"
