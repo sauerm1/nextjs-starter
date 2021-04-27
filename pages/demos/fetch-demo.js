@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Page from "../../components/Page/Page";
-import Button from "../../components/Button/Button";
-import Input from "../../components/Input/Input";
+import Page from "../../components/Page";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
 import useFetch from "../../utils/useFetch";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 
 const FetchDemo = () => {
   const [headerData, headerError, headerloading, headerRequest] = useFetch();
@@ -40,9 +40,7 @@ const FetchDemo = () => {
         {!bodyloading && !bodyData?.body ? <h1>Wheres my body?</h1> : null}
         {bodyloading && <h1>Loading...</h1>}
         {bodyData?.body && <h1>Posted Data: {bodyData?.body}</h1>}
-        <Input value={input} onChange={(e) => setInput(e.target.value)}>
-          Input
-        </Input>
+        <Input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Add Body..."/>
         <Button onClick={handleBodyClick}>POST body</Button>
       </Page>
     </div>

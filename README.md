@@ -5,13 +5,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
-# or
+yarn install
 yarn dev
 ```
 
 ## Features
-State Management: [Zustand](https://github.com/pmndrs/zustand)
+- [x] Data Fetching: [Axios](https://www.npmjs.com/package/axios) 
+- [ ] Data Fetching:[SWR](https://swr.vercel.app/)
+- [x] State Management: [Zustand](https://github.com/pmndrs/zustand)
+- [ ] Git Operations: [Husky](https://www.npmjs.com/package/husky)
+- [ ] Testing: [Jest](https://jestjs.io/), [Enzyme](https://enzymejs.github.io/enzyme/), [Cypress](https://www.cypress.io/)
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

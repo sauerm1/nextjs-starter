@@ -1,9 +1,9 @@
 import usePeopleStore from "../../store/peopleStore";
-import Header from "../../components/Header/Header";
-import Page from "../../components/Page/Page";
-import Input from "../../components/Input/Input";
-import Button from "../../components/Button/Button";
-import React, { useEffect, useRef, useState } from "react";
+import Header from "../../components/Header";
+import Page from "../../components/Page";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import React, { useState } from "react";
 
 const zustand = () => {
   const [inputValue, setInputValue] = useState("");
@@ -26,7 +26,7 @@ const zustand = () => {
       <Page>
         <h1>People List</h1>
         <div style={{ display: "flex" }}>
-          <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+          <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Luke..."/>
           <Button onClick={submit}>Add person</Button>
         </div>
 

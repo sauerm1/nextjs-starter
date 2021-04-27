@@ -1,30 +1,28 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Card from "../components/Card/Card";
-import Header from "../components/Header/Header";
+import Card from "../components/Card";
+import Header from "../components/Header";
 import React from "react";
+import Page from "../components/Page";
 
 export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>Create Next App</title>
+        <title>Next.js Starter App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
       <div className={styles.container}>
         <main className={styles.main}>
           <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js Starter</a>
+            Welcome to <a href="https://github.com/sauerm1/nextjs-starter">Next.js</a> Starter App
           </h1>
-
-          <p className={styles.description}>
-            Get started by editing <code className={styles.code}>pages/index.js</code>
-          </p>
 
           <div className={styles.grid}>
             <Card link="demos/fetch-demo" title="Fetching Data" description="Fetching data with Axios"></Card>
             <Card link="demos/zustand" title="State Management" description="Managing state with Zustand"></Card>
+            <Card link="demos/login" title="Persistant State Management" description="Managing persistant state with Zustand"></Card>
 
             <Card
               link="https://nextjs.org/docs"
