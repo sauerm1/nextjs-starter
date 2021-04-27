@@ -1,7 +1,6 @@
 import styles from "./Header.module.css";
 import Link from "next/link";
 
-
 const Header = ({ children }) => {
   return (
     <div className={styles.header}>
@@ -11,8 +10,7 @@ const Header = ({ children }) => {
         </Link>
       </div>
       <div className={styles.aligncenter}>{children}</div>
-      <div className={styles.alignright}>
-	  </div>
+      <div className={styles.alignright}></div>
     </div>
   );
 };

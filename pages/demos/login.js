@@ -25,10 +25,15 @@ const zustand = () => {
       <Header>Zustand - Persist</Header>
       <Page>
         <h1>Log In</h1>
-        <div>The logged in user will be stored in local storage so if you close and repoen this page, it will remember who logged in</div>
+        <div style={{ "textAlign": "center" }}>
+          The logged in user will be stored in local storage so if you close and repoen this page, it will remember who
+          is logged in
+        </div>
+        <hr style={{ width: "50%" }} />
+        <br />
         <div>User Logged In: {user}</div>
         <div style={{ display: "flex" }}>
-          <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="User Name"/>
+          <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="User Name" />
           <Button onClick={submit}>Log In</Button>
           <Button onClick={logOut}>Log Out</Button>
         </div>
