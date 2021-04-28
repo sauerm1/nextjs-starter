@@ -25,9 +25,8 @@ const zustand = () => {
       <Header>Zustand - Persist</Header>
       <Page>
         <h1>Log In</h1>
-        <div style={{ textAlign: "center" }}>
-          The logged in user will be stored in local storage so if you close and repoen this page, it will remember who
-          is logged in
+        <div style={{ textAlign: "center", width: "50%", padding:"10px" }}>
+          This is an example of how you can persist state using Zustand. When the user logs in, the username will be placed in the Zustand persist store and added to local storage. When the page is visited at a later time, the Zustand persist store will check for this username in local storage, and if it exists it will set the global state user to that username. 
         </div>
         <hr style={{ width: "50%" }} />
         <br />

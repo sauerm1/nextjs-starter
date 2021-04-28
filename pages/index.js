@@ -7,7 +7,7 @@ import Page from "../components/Page";
 
 export default function Home() {
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>Next.js Starter App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -20,9 +20,10 @@ export default function Home() {
           </h1>
 
           <div className={styles.grid}>
-            <Card link="demo/fetch-demo" title="Fetching Data" description="Fetching data with Axios"></Card>
+            <Card link="demo/axios" title="Fetching Data" description="Fetching data with Axios"></Card>
             <Card link="demo/zustand" title="State Management" description="Managing state with Zustand"></Card>
             <Card link="demo/login" title="Persistant State Management" description="Managing persistant state with Zustand"></Card>
+            <Card link="demo/swr" title="Data Fetching With SWR" description="SWR helps with data fetching"></Card>
 
             <Card
               link="https://nextjs.org/docs"
@@ -60,6 +61,6 @@ export default function Home() {
           </a>
         </footer>
       </div>
-    </React.Fragment>
+    </>
   );
 }

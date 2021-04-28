@@ -1,4 +1,4 @@
-import usePeopleStore from "../../store/peopleStore";
+import useTodoStore from "../../store/todoStore";
 import Header from "../../components/Header";
 import Page from "../../components/Page";
 import Input from "../../components/Input";
@@ -7,33 +7,33 @@ import React, { useState } from "react";
 
 const zustand = () => {
   const [inputValue, setInputValue] = useState("");
-  const people = usePeopleStore((state) => state.people);
-  const addPerson = usePeopleStore((state) => state.addPerson);
-  const removePerson = usePeopleStore((state) => state.removePerson);
+  const tasks = useTodoStore((state) => state.tasks);
+  const addTask = useTodoStore((state) => state.addTask);
+  const removeTask = useTodoStore((state) => state.removeTask);
 
   const submit = () => {
-    addPerson(inputValue);
+    addTask(inputValue);
     setInputValue("");
   };
 
-  const deletePerson = (i) => {
-    removePerson(i);
+  const deleteTask = (i) => {
+    removeTask(i);
   };
 
   return (
     <div>
       <Header>Zustand</Header>
       <Page>
-        <h1>People List</h1>
+        <h1>To Do List</h1>
         <div style={{ display: "flex" }}>
           <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder="Luke..."/>
-          <Button onClick={submit}>Add person</Button>
+          <Button onClick={submit}>Add Task</Button>
         </div>
 
-        <p>We have {people.length} in our DB.</p>
+        <p>We have {tasks.length} tasks in our DB.</p>
         <ul>
-          {people.map((p, i) => (
-            <li key={i} onClick={() => deletePerson(i)}>
+          {tasks.map((p, i) => (
+            <li key={i} onClick={() => deleteTask(i)}>
               {p}
             </li>
           ))}
