@@ -16,10 +16,6 @@ const zustand = () => {
     setInputValue("");
   };
 
-  const deletePerson = () => {
-    logOut();
-  };
-
   return (
     <div>
       <Header>Zustand - Persist</Header>

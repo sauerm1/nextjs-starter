@@ -1,62 +1,69 @@
-import { useState } from "react";
 import useSWR, { SWRConfig } from "swr";
+import swrFetcher from "../../utils/swrFetcher";
+import useDateTimeStore from "../../store/dateTimeStore";
+import Header from "../../components/Header";
+import Page from "../../components/Page";
+import HR from "../../components/HR"
+import useFetch from "../../utils/useFetch";
+import { useEffect } from "react";
 
-const fetcher = (...args) => fetch(...args).then(res => res.json());
+const swr = () => {
+	const [fetchData, fetchError, fetchloading, fetchRequest] = useFetch();
 
-export default function App() {
-  return (
-    <SWRConfig value={{ revalidateOnFocus: false, fetcher }}>
-      <Crimes />
-    </SWRConfig>
-  );
-}
+	const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/datetime`;
 
-function Crimes() {
-  const url =
-    "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
-  const { data, error } = useSWR(url);
+	useEffect(() => {
+		const options = {
+			url: `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/datetime`,
+			method: "get",
+		};
+		fetchRequest(options);
+	}, []);
 
-  if (error) return <div>Error...</div>;
-  if (!data) return <div>Loading...</div>;
+	// const data = useDateTimeStore((state) => state.data);
+	// const error = useDateTimeStore((state) => state.error);
+	// const isValidating = useDateTimeStore((state) => state.isValidating);
+	// const fetchBitcoinData = useDateTimeStore((state) => state.fetchDateTimeData);
+	// fetchBitcoinData(url, swrFetcher);
 
-  return (
-    <DisplayCrimes
-      crimes={data}
-      categories={[...new Set(data.map(crime => crime.category))]}
-    />
-  );
-}
+	const { data, error, isValidating } = useSWR(url, swrFetcher);
 
-function DisplayCrimes({ crimes, categories }) {
-  const [filterCategory, setFilterCategory] = useState(null);
+	const formatDateTime = (timestamp) => {
+		let d = new Date(timestamp);
+		return d.toLocaleString();
+	};
 
-  const filteredCrimes = filterCategory
-    ? crimes.filter(crime => crime.category === filterCategory)
-    : crimes;
+	const Line = ({ field, value, loading }) => {
+		const color = loading && "#0070f3";
+		return (
+			<div style={{ padding: "10px", fontSize: "20px", display: "flex" }}>
+				<div>{field} : </div>
+				<div style={{ fontWeight: "bold", color: color }}>{value}</div>
+			</div>
+		);
+	};
 
-  return (
-    <>
-      {categories.map(category => (
-        <button
-          onClick={() => {
-            setFilterCategory(category);
-          }}
-          key={category}
-        >
-          {category}
-        </button>
-      ))}
-      {filterCategory && (
-        <button
-          onClick={() => {
-            setFilterCategory(null);
-          }}
-        >
-          reset
-        </button>
-      )}
+	return (
+		<>
+			<Header>SWR</Header>
+			<Page>
+				<div style={{ textAlign: "center", width: "50%", padding: "10px" }}>
+					SWR will cache your API response and revalidate at certain points throught using the application. You can
+					validate that new data is fetched from the worldtimeapi API by clicking on a new tab, and then back to this
+					one. You will see that a new network request is made to this API and the updated date/time is re-rendered on
+					the page.
+				</div>
+				<HR/>
+				<h1>SWR</h1>
+				<Line field={"Is Loading"} value={String(isValidating)} loading={isValidating} />
+				<Line field={"Current Time"} value={data?.dateTime ? formatDateTime(data?.dateTime) : "undefined"} />
+				<h1>Normal Fetch</h1>
+				<Line field={"Is Loading"} value={String(fetchloading)} loading={fetchloading} />
 
-      <pre>{JSON.stringify(filteredCrimes, null, 2)}</pre>
-    </>
-  );
-}
+				<Line field={`Current Time`} value={fetchData?.dateTime ? formatDateTime(fetchData?.dateTime) : "undefined"} />
+			</Page>
+		</>
+	);
+};
+
+export default swr;

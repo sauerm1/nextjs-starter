@@ -20,10 +20,10 @@ export default function Home() {
           </h1>
 
           <div className={styles.grid}>
-            <Card link="demo/axios" title="Fetching Data" description="Fetching data with Axios"></Card>
-            <Card link="demo/zustand" title="State Management" description="Managing state with Zustand"></Card>
-            <Card link="demo/login" title="Persistant State Management" description="Managing persistant state with Zustand"></Card>
-            <Card link="demo/swr" title="Data Fetching With SWR" description="SWR helps with data fetching"></Card>
+            <Card link="demo/axios" title="Axios - Fetching Data" description="Fetching data with Axios"></Card>
+            <Card link="demo/zustand" title="Zustand - State Management " description="Managing state with Zustand"></Card>
+            <Card link="demo/login" title="Zustand - Persistant State" description="Managing persistant state with Zustand"></Card>
+            <Card link="demo/swr" title="SWR - Fetching Data" description="SWR helps with data fetching and caching"></Card>
 
             <Card
               link="https://nextjs.org/docs"
