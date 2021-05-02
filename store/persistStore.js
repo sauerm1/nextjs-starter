@@ -15,7 +15,7 @@ let authStore = persist(
       }),
   }),
   {
-    name: "user", // unique name
+    name: "userName", // unique name
     // getStorage: () => sessionStorage, // (optional) by default the 'localStorage' is used
   }
 );

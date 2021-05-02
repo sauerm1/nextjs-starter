@@ -13,19 +13,20 @@ const zustand = () => {
 	const cart = useGroceryStore((state) => state.cart);
 	const addItem = useGroceryStore((state) => state.addItem);
 	const removeItem = useGroceryStore((state) => state.removeItem);
+	const emptyCart = useGroceryStore((state) => state.emptyCart);
 
 	return (
 		<>
 			<Header>Zustand</Header>
 			<Page>
 				<PageDescription
-					title="Grocery Shopping"
+					title="Your Cart"
 					description="This is an example of how you can save global state using Zustand. "
 				></PageDescription>
 
 				<p>You have {cart.totalItems} items in your shopping cart.</p>
 
-				{Object.keys(groceries).map((name, i) => (
+				{Object.keys(cart.items).map((name, i) => (
 					<Box key={name}>
 						{name} : {priceFormatter(groceries[name].price)}
 						<Button onClick={() => removeItem(name)}>-</Button>
@@ -33,9 +34,12 @@ const zustand = () => {
 						<Button onClick={() => addItem(name)}>+</Button>
 					</Box>
 				))}
-				<Link href="/demo/cart">
-					<Button>Proceed to cart</Button>
+				<p>Subtotal : {priceFormatter(cart.totalPrice)}</p>
+
+				<Link href="/demo/zustand">
+					<Button>Back To Shopping</Button>
 				</Link>
+				<Button onClick={emptyCart}>Checkout</Button>
 			</Page>
 		</>
 	);
