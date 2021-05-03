@@ -30,16 +30,25 @@ const zustand = () => {
 					<Box key={name}>
 						{name} : {priceFormatter(groceries[name].price)}
 						<Button onClick={() => removeItem(name)}>-</Button>
-						<Button>{cart.items[name] ? cart.items[name].count : 0}</Button>
+						<Box>{cart.items[name] ? cart.items[name].count : 0}</Box>
 						<Button onClick={() => addItem(name)}>+</Button>
 					</Box>
 				))}
-				<p>Subtotal : {priceFormatter(cart.totalPrice)}</p>
+
+				{Object.keys(cart.items).length ? (
+					<Box>
+						<p style={{ textAlign: "right" }}>Subtotal : {priceFormatter(cart.totalPrice)}</p>
+						<p style={{ textAlign: "right" }}>Sales Tax : {priceFormatter(cart.totalPrice * 0.06)}</p>
+						<p style={{ fontWeight: "bold", textAlign: "right" }}>
+							Total : {priceFormatter(cart.totalPrice * 0.06 + cart.totalPrice)}
+						</p>
+					</Box>
+				) : null}
 
 				<Link href="/demo/zustand">
 					<Button>Back To Shopping</Button>
 				</Link>
-				<Button onClick={emptyCart}>Checkout</Button>
+				{Object.keys(cart.items).length ? <Button onClick={emptyCart}>Checkout</Button> : null}
 			</Page>
 		</>
 	);

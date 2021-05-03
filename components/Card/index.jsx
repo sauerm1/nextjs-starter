@@ -3,14 +3,14 @@ import Link from "next/link";
 
 const Card = ({ link, title, description }) => {
 	return (
-		<div className={styles.card}>
-			<Link href={link}>
+		<Link href={link}>
+			<div className={styles.card}>
 				<a>
 					<h3>{title} &rarr;</h3>
 					<p>{description}</p>
 				</a>
-			</Link>
-		</div>
+			</div>
+		</Link>
 	);
 };
 

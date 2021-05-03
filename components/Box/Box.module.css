@@ -1,17 +1,8 @@
 .box {
-    margin: 2px;
-    padding:  5px 10px;
-    /* border: 1px solid #e4e6e8; */
-    border-radius: 5px;
-    cursor: pointer;
-    /* transition: 0.1s ease-in; */
-    background: white;
-    color: black;
-
-  }
-  
-/* .box:hover {
-    background-color: #0070f3;
-    color: white;
-  }
-   */
+	margin: 2px;
+	padding: 10px 10px;
+	border-radius: 5px;
+	background: white;
+	color: black;
+  display: inline;
+}

@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Card from "../components/Card";
 import Header from "../components/Header";
+import HR from "../components/HR";
 import React from "react";
 import Page from "../components/Page";
 
@@ -36,7 +37,16 @@ export default function Home() {
 							title="SWR - Fetching Data"
 							description="SWR helps with data fetching and caching"
 						></Card>
+					</div>
 
+					<HR width={100} margin="20px 0px" />
+					<div className={styles.grid}>
+						<Card link="markdownEditor" title="md edit" description="Editing markdown pages"></Card>
+					</div>
+
+					<HR width={100} margin="20px 0px" />
+
+					<div className={styles.grid}>
 						<Card
 							link="https://nextjs.org/docs"
 							title="Documentation"

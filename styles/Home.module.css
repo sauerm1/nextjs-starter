@@ -1,14 +1,6 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .main {
-  padding: 5rem 0;
+  padding: 3rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -47,7 +39,7 @@
 }
 
 .title {
-  margin: 0;
+  margin: 0 0 3rem 0;
   line-height: 1.15;
   font-size: 4rem;
 }
@@ -73,11 +65,11 @@
 
 .grid {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 
 .logo {

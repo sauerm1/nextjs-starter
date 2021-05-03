@@ -27,9 +27,12 @@ const zustand = () => {
 
 				{Object.keys(groceries).map((name, i) => (
 					<Box key={name}>
+						<Box>
 						{name} : {priceFormatter(groceries[name].price)}
+
+						</Box>
 						<Button onClick={() => removeItem(name)}>-</Button>
-						<Button>{cart.items[name] ? cart.items[name].count : 0}</Button>
+						<Box>{cart.items[name] ? cart.items[name].count : 0}</Box>
 						<Button onClick={() => addItem(name)}>+</Button>
 					</Box>
 				))}
