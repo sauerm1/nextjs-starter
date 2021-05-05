@@ -1,8 +1,10 @@
 import Head from "next/head";
+import Link from "next/Link";
 import styles from "../styles/Home.module.css";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import HR from "../components/HR";
+import Flex from "../components/Flex";
 import React from "react";
 import Page from "../components/Page";
 
@@ -17,10 +19,9 @@ export default function Home() {
 			<Page>
 				<main className={styles.main}>
 					<h1 className={styles.title}>
-						Welcome to <a href="https://github.com/sauerm1/nextjs-starter">Next.js</a> Starter App
+						Welcome to <Link href="https://github.com/sauerm1/nextjs-starter">Next.js</Link> Starter App
 					</h1>
-
-					<div className={styles.grid}>
+					<Flex>
 						<Card link="demo/axios" title="Axios - Fetching Data" description="Fetching data with Axios"></Card>
 						<Card
 							link="demo/zustand"
@@ -37,16 +38,16 @@ export default function Home() {
 							title="SWR - Fetching Data"
 							description="SWR helps with data fetching and caching"
 						></Card>
-					</div>
+					</Flex>
 
 					<HR width={100} margin="20px 0px" />
-					<div className={styles.grid}>
+					<Flex>
 						<Card link="markdownEditor" title="md edit" description="Editing markdown pages"></Card>
-					</div>
-
+						<Card link="demo/flexbox" title="Flexbox" description="Messing around with flexbox."></Card>
+					</Flex> 
+					
 					<HR width={100} margin="20px 0px" />
-
-					<div className={styles.grid}>
+					<Flex>
 						<Card
 							link="https://nextjs.org/docs"
 							title="Documentation"
@@ -70,7 +71,7 @@ export default function Home() {
 							title="Deploy"
 							description="Instantly deploy your Next.js site to a public URL with Vercel."
 						></Card>
-					</div>
+					</Flex>
 				</main>
 
 				<footer className={styles.footer}>
